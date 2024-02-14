@@ -6,4 +6,18 @@ const Command = require('../command.js');
 
 describe("Message class", function() {
 
+    it("throws error if a name is NOT passed into the constructor as the first parameter", function() {
+        expect( function() { new Message();}).toThrow(new Error('Message name required.'));
+    });
+
+    it("constructor sets name", function() {
+        let message = new Message('MESSAGE_NAME');
+        expect(message.name).toBe('MESSAGE_NAME');
+    });
+
+    it("contains a commands array passed into the constructor as the 2nd argument", function() {
+        let message = new Message('MESSAGE_NAME', ['MESSAGE_COMMAND_1', 'MESSAGE_COMMAND_2']);
+        expect(message.commands).toStrictEqual(['MESSAGE_COMMAND_1', 'MESSAGE_COMMAND_2']); //Ask why toBe does not work
+    });
+
 });
