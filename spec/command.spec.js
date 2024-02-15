@@ -18,5 +18,4 @@ describe("Command class", function() {
     let command = new Command('COMMAND_TYPE', 'VALUE');
     expect(command.value).toBe('VALUE');
   });
-
 });
